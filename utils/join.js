@@ -1,21 +1,12 @@
 const Kahoot = require('kahoot.js-updated');
-var increment = 0;
 
-async function loopJoin() {
-    for (let i = 0; i < 100; i++) {
-        await createBot()
-    }
-}
 
-async function createBot() {
+module.exports =  async function botJoin(name, botNum, gamePin) {
     let bot = new Kahoot;
-    botName = 'TEST '+ increment;
-    increment++;
+    botName = name + botNum;
     console.log(botName + " is Joining kahoot...");
-    bot.join(657138, botName).then(() =>{
+    bot.join(gamePin, botName).then(() =>{
         console.log(botName+ ' Has Been Joined!')
         return true;
     });
 }
-
-loopJoin()
